@@ -1,14 +1,31 @@
-import React, { FC } from "react";
+import React, { FC, useEffect, useState } from "react";
 import ReactDom from "react-dom";
 import "./style.scss";
 
 const App: FC = () => {
-  const env = process.env.NODE_ENV;
+  const [advice, setAdvice] = useState("");
+
+  useEffect(() => {
+    const url = "https://api.adviceslip.com/advice";
+
+    const fetchData = async () => {
+      try {
+        const response = await fetch(url);
+        const json = await response.json();
+        console.log(json.slip.advice);
+        setAdvice(json.slip.advice);
+      } catch (error) {
+        console.log("error", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
-    <div>
-      <h1>Hello World TS</h1>
-      {/* <img src={Img} alt="" /> */}
-      <h2>{env}</h2>
+    <div className="app">
+      <h1>Hello World</h1>
+      <p>{advice}</p>
     </div>
   );
 };
