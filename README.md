@@ -5,4 +5,4 @@
 ```
 npm run build
 ```
-***production Ready code will be located in <b>Build</b> folder
+*production Ready code will be located in <b>Build</b> folder
