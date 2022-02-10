@@ -2,7 +2,9 @@
 
 
 ## Production code
-```
+```javascript
 npm run build
+### Production Ready code will be located in Build folder
 ```
-*production Ready code will be located in <b>Build</b> folder
+
+
